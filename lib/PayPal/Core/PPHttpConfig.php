@@ -211,13 +211,14 @@ class PPHttpConfig
 
     /**
      * Retrieves an array of constant key, and value based on Prefix
+     * Updated from: https://github.com/paypal/sdk-core-php/commit/0223a944ddb6a3f6e0201ef65f1322d50778982e
      *
      * @param array $configs
      * @param       $prefix
      *
      * @return array
      */
-    public function getHttpConstantsFromConfigs($configs = array(), $prefix)
+    public function getHttpConstantsFromConfigs($configs = array(), $prefix = null)
     {
         $arr = array();
         if ($prefix != null && is_array($configs)) {
