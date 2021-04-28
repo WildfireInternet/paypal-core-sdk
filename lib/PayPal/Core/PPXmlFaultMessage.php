@@ -8,9 +8,10 @@ namespace PayPal\Core;
  *
  * TODO: Refactor XMLMessage functionality to a visitor
  * class so it can be made an interface
+ *
+ * Updated from: https://github.com/paypal/sdk-core-php/commit/16b1745a30d29d291ad613ccd6d6d6f30a427efb
  */
-abstract class PPXmlFaultMessage
-  extends \Exception
+abstract class PPXmlFaultMessage extends \Exception
 {
     /**
      * @param array  $map
@@ -31,7 +32,7 @@ abstract class PPXmlFaultMessage
         }
 
         if (($first = reset($map)) && !is_array($first) && !is_numeric(key($map))) {
-            parent::init($map, false);
+            self::init($map, false);
             return;
         }
 

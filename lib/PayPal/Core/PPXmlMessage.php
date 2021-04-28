@@ -103,6 +103,8 @@ abstract class PPXmlMessage
     }
 
     /**
+     * Updated from: https://github.com/paypal/sdk-core-php/commit/16b1745a30d29d291ad613ccd6d6d6f30a427efb
+     *
      * @param array  $map    intermediate array representation of XML message to deserialize
      * @param string $isRoot true if this is a root class for SOAP deserialization
      */
@@ -121,7 +123,7 @@ abstract class PPXmlMessage
         }
 
         if (($first = reset($map)) && !is_array($first) && !is_numeric(key($map))) {
-            parent::init($map, false);
+            self::init($map, false);
             return;
         }
 
